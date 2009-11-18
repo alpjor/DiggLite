@@ -1,0 +1,323 @@
+/* @override http://digglite.addisonkowalski.com/css/global.css */
+
+/* CSS Document */
+
+/* --- meyer css reset --- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+/* --- end reset --- */
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #e5ecf3 url('/img/bg_body.gif') repeat-x;
+	color: #000;
+	font: normal 12px "Helvetica", arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #08c;
+	text-decoration: none;
+}
+	
+img {
+	  border: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+    background: transparent url('/img/digglite-logo.png') no-repeat 0 0;
+    height: 60px;
+    line-height: 1000px;
+    margin: 0 auto;
+	margin-top: 17px;
+	margin-bottom: 27px;
+    overflow: hidden;
+    width: 169px;
+}
+
+
+h2 {
+	border-bottom: 1px solid #c5d6e6;
+	color: #4e463f;
+	font-size: 30px;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+
+h2 strong {
+	color: #fff;
+}
+
+h3 {
+	float: left;
+	font-size: 20px !important;
+	font-weight: normal;
+	margin: 15px 10px 0 0;
+	width: 330px;
+}
+
+p {
+	line-height: 22px;
+	margin-bottom: 20px;
+}
+
+#container {
+	background: transparent url('/img/drop-shadow.png') top center no-repeat;
+	margin: 0 auto;
+	padding: 0 30px;
+	width: 630px;
+}
+
+form select {
+    font: Helvetica, Arial, Verdana, sans-serif;
+	margin: 0;
+}
+
+	form span.input {
+		display: block;
+		-moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+	    border: 1px solid #8bb051;
+	    border-radius: 5px;
+		background: #a3c86d;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		width: 160px;
+	}
+	
+#users-name {
+	color: #5b5b5b;
+	float: right;
+	font-size: 16px;
+	margin: 7px 10px 0 0;
+}
+	
+a.fbConnectButton {
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #8bb051;
+    border-radius: 5px;
+	background: #a3c86d;
+	color: #fff;
+	font-weight: bold;
+	float: right;
+	padding: 8px;
+	margin: 0 0 10px 0;
+	text-shadow: 1px 1px 1px #8bb051;
+}
+
+	a.fbConnectButton:hover { background: #8bb051; color: #fff;}
+
+#main-content {
+	background: #fff;
+	float: left;
+	margin-left: -15px;
+	padding: 20px;
+	position: relative;
+	width: 620px;
+	z-index: 1000;
+}
+
+.story {
+	border-bottom: 1px solid #c5d6e6;
+	min-height: 80px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.story-thumbnail {
+	background: #fff;
+	border:  1px solid #c5d6e6;
+	height: 74px;
+	float: left;
+	margin-right: 10px;
+	padding: 3px;
+	width: 74px;
+}
+
+ul.options {
+	float: right;
+	font-size: 11px;
+	margin: 5px 10px 0 0;
+	width: 110px;
+}
+
+ul.options a {
+	color: #999;
+}
+
+	ul.options a:hover {
+		color: #000;
+}
+
+	ul.options li {
+		border-bottom: 1px dotted #ccc;
+		padding: 5px 0 5px 20px;
+	}
+
+/* Digg CSS */
+
+.digg-count a:hover,
+.digg-count-s a:hover,
+.digg-count a:hover strong,
+.digg-count-s a:hover strong {
+    color: #998D43;
+}
+
+.diggs-strong {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    line-height: 1;
+    display: block;
+    color: #736926;
+}
+
+a:visited { color: #105CB6; }
+
+a:hover, a:focus { color: #003; }
+
+a:hover, a:focus { color: #003; }
+
+a:active { color: #000; }
+
+.digg-count a,
+.digg-count span,
+.digg-count-s a,
+.digg-count-s span {
+    display: block;
+    padding: 10px 0 4px 0;
+    text-decoration: none;
+    width: 50px;
+    min-height: 40px;
+    color: #93883F;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+a { color: #105CB6; cursor: pointer; outline: none !important; }
+
+.news-digg {
+	float: right;
+    top: 0.8em;
+    left: 0;
+    text-align: center;
+    font-size: 85%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: url('http://digg.com/img/shade-news.gif') no-repeat;
+}
+
+#h-pri .submenu-drop li,
+.news-digg li, 
+.empty-friend-list {
+    margin: 0;
+    padding: 0;
+}
+
+li.digg-it:hover a {
+    background-position: -300px 100%;
+}
+
+li.digg-it,
+li.undigg-it,
+li.dugg-it,
+li.buried-it {
+    margin-top: 1px;
+    padding: 0 0 5px 0;
+    background: url('http://digg.com/img/digg-box-2.gif') 0 100%;
+    float: left;
+}
+
+.thumbs-up {
+	background-image: url('http://digg.com/img/digg-box-thumbs-up.gif') !important;
+}
+
+.digg-it a,
+.digg-it span,
+.undigg-it a,
+.undigg-it span,
+.dugg-it a,
+.dugg-it span,
+.buried-it a,
+.buried-it span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: -3px;
+    padding: 4px 1px 5px 10px;
+    background: url(http://digg.com/img/digg-box-2.gif) 0 0;
+    width: 45px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.comments {
+    background: url(http://digg.com/img/tools.gif) no-repeat 0 -196px;
+    word-spacing: -0.1em;
+}
+
+.share {
+    background: url(http://digg.com/img/tools.gif) no-repeat 0 4px;
+}
+
+.bury-link {
+    background: url(http://digg.com/img/tools.gif) no-repeat 0 -96px;
+    margin-right: 12px;
+    padding-right: 2px;
+}
