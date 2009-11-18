@@ -32,7 +32,18 @@
 			
 			<h2>Popular In <?php echo $containerTitle ?></h2>
 			
-<?php foreach($stories as $story) {?>
+<?php
+    foreach($stories as $story) {
+        $dugg = false;
+        if (isset($actions) && isset($actions[$story->id])) {
+            if ($actions[$story->id] == 'dugg') {
+                $dugg = true;
+            } else {
+                continue;
+            }
+        }
+
+?>
 			<div class="story">
                 <?php if (isset($story->thumbnail)) {?>
 				<a href="<?php echo $story->link; ?>"><img src="<?php echo $story->thumbnail->src; ?>" alt="Story Thumbnail" class="story-thumbnail"/></a>
@@ -44,7 +55,7 @@
 				<ul class="news-digg">
 					<li class="digg-count">
 					<a href="<?php echo $story->href; ?>"><strong class="diggs-strong"><?php echo $story->diggs; ?></strong> diggs </a>  </li>
-					<li class="digg-it thumbs-up" id="diglink-<?php echo $story->id; ?>"><a href="#">digg</a></li>
+					<li class="digg-it thumbs-up" id="diglink-<?php echo $story->id; ?>"><?php echo ($dugg) ? '<span>dugg</span>' : '<a href="#">digg</a>'; ?></li>
 				</ul>
 				<ul class="options">
 					<li class="comments"><a href="<?php echo $story->href; ?>#comments"><?php echo $story->comments; ?> comments</a></li>

@@ -285,10 +285,6 @@ li.buried-it {
     float: left;
 }
 
-.thumbs-up {
-	background-image: url('http://digg.com/img/digg-box-thumbs-up.gif') !important;
-}
-
 .digg-it a,
 .digg-it span,
 .undigg-it a,
@@ -299,12 +295,20 @@ li.buried-it {
 .buried-it span {
     font-weight: bold;
     display: block;
-    margin-bottom: -3px;
-    padding: 4px 1px 5px 10px;
-    background: url(http://digg.com/img/digg-box-2.gif) 0 0;
-    width: 45px;
+    margin-bottom: -5px;
+    padding: 4px 1px 5px 1px;
+    background: url(/img/digg-box-2.gif) 0 0;
+    width: 49px;
     text-decoration: none;
     text-align: center;
+}
+
+.thumbs-up {
+    background-image: url(/img/digg-box-thumbs-up.gif) !important;
+}
+
+.thumbs-up a {
+    padding-left: 9px;
 }
 
 .comments {

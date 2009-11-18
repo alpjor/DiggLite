@@ -6,6 +6,11 @@
             return false;
         });
 
+        // If they are logged in no need to bind the digg buttons!
+        if (!loggedin) {
+            return;
+        }
+
         $('.digg-it').click(function() {
             var el = this;
             var id = el.id.split('-').pop();

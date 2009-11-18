@@ -118,8 +118,11 @@ class DiggLite
 
             // Accept into Services_Digg2 for OAuth requests
             $this->digg->accept($this->oauth);
-        }
 
+            if (!isset($_SESSION['actions'])) {
+                $_SESSION['actions'] = array();
+            }
+        }
     }
 
     /**
@@ -135,6 +138,7 @@ class DiggLite
             $this->view->authURL = $this->getAuthURL();
         } else {
             $this->view->user = $this->digg->oauth->verify()->oauthverification->user;
+            $this->view->actions = $_SESSION['actions'];
         }
         if (isset($_POST['event']) && $_POST['event'] == 'setContainer') {
             $this->setContainer();
@@ -187,6 +191,7 @@ class DiggLite
             }
 
             $res = $this->digg->story->digg(array('story_id' => $_POST['story_id']));
+            $_SESSION['actions'][$_POST['story_id']] = 'dugg';
         } catch (Exception $e) {
             return print(json_encode(array('error' => $e->getMessage())));
         }
@@ -214,6 +219,7 @@ class DiggLite
             }
 
             $res = $this->digg->story->bury(array('story_id' => $_POST['story_id']));
+            $_SESSION['actions'][$_POST['story_id']] = 'buried';
         } catch (Exception $e) {
             return print(json_encode(array('error' => $e->getMessage())));
         }

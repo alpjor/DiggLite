@@ -13,5 +13,8 @@
 	<!-- JAVASCRIPT -->
     <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript">
+        var loggedin = <?php echo (isset($user)) ? 'true' : 'false'; ?>;
+    </script>
 
 </head>
