@@ -25,7 +25,10 @@
                         return;
                     }
 
-                    $(el).html('<span>dugg</span>');
+                    $(el).removeClass('thumbs-up');
+                    $(el).removeClass('digg-it');
+                    $(el).addClass('dugg-it');
+                    $(el).html('<span>dugg!</span>');
                     var count = $(el).siblings().children('a').children('strong');
                     count.html((count.html() * 1) + 1);
                     $(el).unbind();

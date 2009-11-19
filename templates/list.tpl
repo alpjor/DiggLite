@@ -16,6 +16,7 @@
 			<span class="input">
 				<select name="container">
 					<option value="all">Select a feed category...</option>
+					<option value="all">All</option>
                     <?php foreach ($containers as $container) {
                         $selected = '';
                         if ($container->short_name == $selectedContainer) {
@@ -55,7 +56,9 @@
 				<ul class="news-digg">
 					<li class="digg-count">
 					<a href="<?php echo $story->href; ?>"><strong class="diggs-strong"><?php echo $story->diggs; ?></strong> diggs </a>  </li>
-					<li class="digg-it thumbs-up" id="diglink-<?php echo $story->id; ?>"><?php echo ($dugg) ? '<span>dugg</span>' : '<a href="#">digg</a>'; ?></li>
+					<li class="<?php echo ($dugg) ? 'dugg-it' : 'digg-it thumbs-up'; ?>" id="diglink-<?php echo $story->id; ?>">
+                        <?php echo ($dugg) ? '<span>dugg!</span>' : '<a href="#">digg</a>'; ?>
+                    </li>
 				</ul>
 				<ul class="options">
 					<li class="comments"><a href="<?php echo $story->href; ?>#comments"><?php echo $story->comments; ?> comments</a></li>
@@ -65,6 +68,7 @@
 			</div>
 			<div class="clear"></div>
 <?php } ?>			
+            <a href="#" class="back-to-top"><img src="/img/back_to_top.gif" /></a>
         </div>
         <div class="clear"></div>
 	</div>
