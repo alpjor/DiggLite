@@ -3,7 +3,13 @@
 	<div id="container">
 		
 		<h1>Digglite</h1>
-		
+
+        <div class="about-api">
+            <p><strong>An open-source, OAuth application to showcase Digg’s new API.</strong><br/>
+            <a href="https://github.com/digg/DiggLite/downloads">Download</a> the DiggLite source code, or <a href="http://digg.com/api">View</a> the documentation.</p>
+        </div>
+        <div class="clear"></div>
+
 <?php if (isset($user)) { ?>
         <a href="/logout.php" class="fbConnectButton"><span>Logout</span></a>
                 <span id="users-name"><?php echo $user; ?></span>
