@@ -311,40 +311,44 @@ a { color: #105CB6; cursor: pointer; outline: none !important; }
     padding: 0;
 }
 
-li.digg-it:hover a {
-    background-position: -300px 100%;
-}
-
-li.digg-it,
-li.undigg-it,
-li.dugg-it,
-li.buried-it {
-    margin-top: 1px;
-    padding: 0 0 5px 0;
-    background: url('http://digg.com/img/digg-box-2.gif') 0 100%;
-    float: left;
+.digg-it a, .digg-it span, .undigg-it a, .undigg-it span, .dugg-it a, .dugg-it span, .buried-it a, .buried-it span {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:transparent url(http://www.digg.com/img/digg-box-2.gif) repeat scroll 0 0;
+    display:block;
+    font-weight:bold;
+    margin-bottom:-5px;
+    padding: 5px 1px;
+    text-align:center;
+    text-decoration:none;
+    width:49px;
 }
 
 .thumbs-up {
-    background-image: url('http://digg.com/img/digg-box-thumbs-up.gif') !important;
+    background-image:url(http://www.digg.com/img/digg-box-thumbs-up.gif) !important;
 }
 
-.digg-it a,
-.digg-it span,
-.undigg-it a,
-.undigg-it span,
-.dugg-it a,
-.dugg-it span,
-.buried-it a,
-.buried-it span {
-    font-weight: bold;
-    display: block;
-    margin-bottom: -3px;
-    padding: 4px 1px 5px 10px;
-    background: url(http://digg.com/img/digg-box-2.gif) 0 0;
-    width: 45px;
-    text-decoration: none;
-    text-align: center;
+li.digg-it, li.undigg-it, li.dugg-it, li.buried-it {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:transparent url(http://digg.com/img/digg-box-2.gif) repeat scroll 0 100%;
+    float:left;
+    margin-top:1px;
+    padding:0 0 7px 0;
+}
+
+li.digg-it:hover {
+   background-position: -300px 100%;
+}
+
+li.digg-it:hover a {
+   background-position: -300px 0;
+}
+
+.thumbs-up a {
+    padding-left: 7px;
 }
 
 .comments {

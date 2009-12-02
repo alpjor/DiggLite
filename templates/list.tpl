@@ -6,7 +6,7 @@
 
         <div class="about-api">
             <p><strong>An open-source, OAuth application to showcase Digg’s new API.</strong><br/>
-            <a href="https://github.com/digg/DiggLite/downloads">Download</a> the DiggLite source code, or <a href="http://digg.com/api">View</a> the documentation.</p>
+            <a href="http://github.com/digg/DiggLite/downloads">Download</a> the DiggLite source code, or <a href="http://digg.com/api">View</a> the documentation.</p>
         </div>
         <div class="clear"></div>
 
