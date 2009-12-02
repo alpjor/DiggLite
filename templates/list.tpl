@@ -71,6 +71,7 @@
 					<li class="bury-link" id="bury-<?php echo $story->id; ?>"><a href="#">Bury</a></li>
 				</ul>
 				<div class="clear"></div>
+                <div class="made-popular">Made popular <?php echo $story->since; ?></div>
 			</div>
 			<div class="clear"></div>
 <?php } ?>			

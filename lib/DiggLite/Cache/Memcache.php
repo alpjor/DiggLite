@@ -68,9 +68,9 @@ class DiggLite_Cache_Memcache extends DiggLite_Cache
      *
      * @return bool Result of the set
      */
-    public function set($key, $value, $expire = 0)
+    public function set($key, $value, $expire = 60)
     {
-        return $this->cache->set($key, $value, 0, $expire);
+        return $this->cache->set($key, $value, null, $expire);
     }
 
     /**

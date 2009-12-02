@@ -165,10 +165,20 @@ class DiggLite
         $this->oauth->setTokenSecret($_SESSION['oauth_token_secret']);
         $this->oauth->getAccessToken(self::$options['apiEndpoint'], $_GET['oauth_verifier'],
             array('method' => 'oauth.getAccessToken'), 'POST');
+        $this->digg->accept($this->oauth);
 
         $_SESSION['oauth_token']        = $this->oauth->getToken();
         $_SESSION['oauth_token_secret'] = $this->oauth->getTokenSecret();
         $_SESSION['authorized']         = 1;
+        $_SESSION['actions'] = array();
+
+        // Gather dugg stories and put the story_id's in the session so
+        // that we may display the story as dugg!
+        $user = $this->digg->oauth->verify()->oauthverification->user;
+        $stories = $this->digg->user->getDugg(array('username' => $user))->stories;
+        foreach ($stories as $story) {
+            $_SESSION['actions'][$story->id] = 'dugg';
+        }
 
         session_write_close();
 
@@ -285,10 +295,59 @@ class DiggLite
                 $params['container'] = $this->view->selectedContainer;
             }
             $stories = $this->digg->story->getPopular($params)->stories;
-            $this->cache->set($storiesKey, $stories);
+            foreach ($stories as $story) {
+                $story->since = $this->getSinceTime($story->promote_date);
+            }
+
+            $this->cache->set($storiesKey, $stories, 30);
         }
 
         $this->view->stories = $stories;
+    }
+
+    /**
+     * Get a formated since time
+     *
+     * @param int $time Time from
+     *
+     * @return string Easy to read since time
+     */
+    protected function getSinceTime($time)
+    {
+        $seconds = time() - $time;
+        if ($seconds < 0) {
+            $timeString = '5 sec ago';
+        } elseif ($seconds < 60) {
+            $timeString = $seconds.' sec ago';
+        } elseif ($seconds < 120) {
+            $timeString = '1 min ago';
+        } elseif ($seconds < 3600) {
+            $timeString = floor($seconds/60).' min ago';
+        } elseif ($seconds < 3660) {
+            $timeString = '1 hr ago';
+        } elseif ($seconds < 86400) {
+            $hours = floor($seconds/3600);
+            $minutes = floor(($seconds-$hours*3600)/60);
+            if ($minutes == 0) {
+                $timeString = $hours.' hr ago';
+            } elseif ($minutes == 1) {
+                if ($hours > 1) {
+                    $timeString = $hours.' hr 1 min ago';
+                } else {
+                    $timeString = $hours.' hr 1 min ago';
+                }
+            } else {
+                if ($hours > 1) {
+                    $timeString = $hours.' hr '.$minutes.' min ago';
+                } else {
+                    $timeString = $hours.' hr '.$minutes.' min ago';
+                }
+            }
+        } else {
+            $timeString = 'a long time ago';
+        }
+
+        return $timeString;
     }
 
     /**

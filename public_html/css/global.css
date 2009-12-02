@@ -361,3 +361,12 @@ li.buried-it {
     margin-right: 12px;
     padding-right: 2px;
 }
+
+.made-popular {
+    color: #aaa;
+    display: block;
+    float: left;
+    font-size: 11px;
+    margin: -15px 0 0 90px;
+    position: relative;
+}
