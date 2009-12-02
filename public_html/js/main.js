@@ -1,40 +1,37 @@
 (function() {
     $(document).ready(function() {
         $('#container-form').change(function() {
-            //$('.input > select').attr('disabled', 'disabled');
             $(this).submit();
             return false;
         });
 
-        // If they are logged in no need to bind the digg buttons!
-        if (!loggedin) {
-            return;
-        }
+        // If they are not logged in no need to bind the digg buttons!
+        if (!loggedin) return;
 
         $('.digg-it').click(function() {
             var el = this;
             var id = el.id.split('-').pop();
             $.ajax({
-                type: 'POST',
-                url: 'digg.php',
+                type:     'POST',
+                url:      'digg.php',
                 dataType: 'json',
-                data: ({ story_id: id }),
-                success: function(res) {
+                data:     ({ story_id: id }),
+                success:  function(res) {
                     if (res.error) {
                         alert(res.error);
                         return;
                     }
+                    el = $(el); 
 
-                    $(el).removeClass('thumbs-up');
-                    $(el).removeClass('digg-it');
-                    $(el).addClass('dugg-it');
-                    $(el).html('<span>dugg!</span>');
-                    var count = $(el).siblings().children('a').children('strong');
+                    el.removeClass('thumbs-up')
+                      .removeClass('digg-it')
+                      .addClass('dugg-it')
+                      .html('<span>dugg!</span>');
+                    var count = el.siblings().children('a').children('strong');
                     count.html((count.html() * 1) + 1);
-                    $(el).unbind();
+                    el.unbind();
                 }
             });
-
             return false;
         });
 
@@ -42,11 +39,11 @@
             var el = this;
             var id = el.id.split('-').pop();
             $.ajax({
-                type: 'POST',
-                url: 'bury.php',
+                type:     'POST',
+                url:      'bury.php',
                 dataType: 'json',
-                data: ({ story_id: id }),
-                success: function(res) {
+                data:     ({ story_id: id }),
+                success:  function(res) {
                     if (res.error) {
                         alert(res.error);
                         return;
@@ -55,7 +52,6 @@
                     $(el).closest('.story').fadeOut().unbind();
                 }
             });
-
             return false;
         });
     });
